@@ -8,7 +8,11 @@
 <meta name="theme-color" content="#0d1424">
 <meta property="og:title" content="I am thankful for…">
 <meta property="og:description" content="The whole timeline is saying it today. Make your card and post yours.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦃</text></svg>">
+<link rel="icon" type="image/png" href="assets/icon-64.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:image" content="https://iamthankfulfor.site/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://iamthankfulfor.site/assets/og.png">
 <style>
 @font-face { font-family: "Fraunces"; src: url(assets/fonts/fraunces.woff2) format("woff2"); font-weight: 100 900; font-display: swap; }
 @font-face { font-family: "Fraunces"; src: url(assets/fonts/fraunces-italic.woff2) format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
@@ -29,18 +33,19 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 .pill:hover { border-color: var(--amber); color: var(--amber); }
 
 /* hero: the timeline */
-.hero { position: relative; height: 100vh; min-height: 640px; overflow: hidden; display: grid; place-items: center; }
-.feed { position: absolute; inset: -40px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 0 18px; opacity: .55; filter: saturate(.9); }
+.hero { position: relative; height: 82vh; min-height: 600px; overflow: hidden; display: grid; place-items: center; }
+.feed { position: absolute; inset: -40px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 0 16px; opacity: .5; }
 .col { display: flex; flex-direction: column; gap: 18px; animation: up 60s linear infinite; }
 .col:nth-child(2) { animation-duration: 75s; animation-delay: -20s; } .col:nth-child(3) { animation-duration: 66s; animation-delay: -35s; } .col:nth-child(4) { animation-duration: 82s; animation-delay: -10s; }
 @keyframes up { from { transform: translateY(0); } to { transform: translateY(-50%); } }
-.post { background: #121b30; border: 1px solid rgba(247,236,219,.09); border-radius: 18px; padding: 16px 18px; }
+.post { background: #000; border: 1px solid #2f3336; border-radius: 16px; padding: 14px 16px; color: #e7e9ea; font-family: Inter, -apple-system, sans-serif; }
+.post .nm { display: flex; flex-direction: column; line-height: 1.2; } .post .nm b { font-size: 15px; color: #e7e9ea; } .post .nm i { font-style: normal; font-size: 13px; color: #71767b; }
 .post .who { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
 .post .av { width: 34px; height: 34px; border-radius: 50%; flex: none; }
 .post .bars i { display: block; height: 8px; border-radius: 4px; background: rgba(247,236,219,.14); } .post .bars i + i { width: 60%; margin-top: 6px; height: 6px; background: rgba(247,236,219,.08); }
 .post .bars { flex: 1; }
-.post p { margin: 0; font-size: 16px; color: rgba(247,236,219,.9); }
-.post p b { color: var(--amber); font-weight: 600; }
+.post p { margin: 0; font-size: 15.5px; line-height: 1.4; color: #e7e9ea; }
+.post p b { color: #e7e9ea; font-weight: 700; }
 .shade { position: absolute; inset: 0; background: radial-gradient(ellipse 55% 50% at 50% 50%, rgba(13,20,36,.96) 30%, rgba(13,20,36,.55) 70%, rgba(13,20,36,.2)), linear-gradient(180deg, var(--night) 0%, transparent 18%, transparent 80%, var(--night) 100%); }
 .heroIn { position: relative; z-index: 2; text-align: center; padding: 0 22px; }
 .tag { font-family: "DM Mono", monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--amber); display: inline-flex; gap: 10px; align-items: center; }
@@ -58,7 +63,7 @@ h1 em { font-style: italic; font-weight: 600; color: var(--amber); }
 .counter b { color: var(--cream); font-weight: 400; }
 
 /* maker */
-section { padding: 90px 0; }
+section { padding: 40px 0 80px; }
 .h2 { font-family: Fraunces, serif; font-weight: 800; font-size: clamp(36px, 5.5vw, 64px); line-height: 1; letter-spacing: -.03em; margin: 12px 0 0; }
 .h2 em { font-style: italic; font-weight: 600; color: var(--amber); }
 .grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 28px; margin-top: 40px; align-items: start; }
@@ -86,6 +91,7 @@ label small { text-transform: none; letter-spacing: 0; font-family: Inter, sans-
 .sw.on { border-color: var(--cream); }
 canvas { width: 100%; height: auto; display: block; border-radius: 20px; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
 .cardWrap { position: sticky; top: 20px; }
+.cardLbl { font-family: "DM Mono", monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; }
 .cardWrap p { text-align: center; color: var(--dim); font-size: 13px; margin: 12px 0 0; }
 .preview { margin-top: 16px; background: #000; border: 1px solid #2f3336; border-radius: 16px; padding: 14px 16px; font: 15px/1.4 Inter, sans-serif; white-space: pre-wrap; color: #e7e9ea; }
 .preview .lbl { display: block; font: 11px "DM Mono", monospace; letter-spacing: .14em; text-transform: uppercase; color: #71767b; margin-bottom: 8px; }
@@ -99,7 +105,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0 44px; color: var(--d
 @media (max-width: 900px) { .feed { grid-template-columns: repeat(2, 1fr); } .col:nth-child(n+3) { display: none; } .how { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .logo { font-size: 16px; white-space: nowrap; } .logo span:first-child { font-size: 24px !important; }
+  .logo { font-size: 16px; white-space: nowrap; } .logo img { width: 32px !important; height: 32px !important; }
   #trendPill, #ctr, .navr a[href="#make"] { display: none; } .navr { gap: 6px; } .pill { padding: 8px 11px; font-size: 11px; }
   .feed { opacity: .28; } .shade { background: radial-gradient(ellipse 90% 60% at 50% 50%, rgba(13,20,36,.97) 40%, rgba(13,20,36,.75) 80%, rgba(13,20,36,.5)), linear-gradient(180deg, var(--night) 0%, transparent 15%, transparent 85%, var(--night) 100%); }
   .hero { min-height: 600px; height: 92svh; } .lede { font-size: 16px; }
@@ -111,7 +117,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0 44px; color: var(--d
 </style>
 </head>
 <body>
-<nav><div class="wrap"><a class="logo" href="./"><span style="font-size:30px;line-height:1">🦃</span><span>I am <em style="color:var(--amber)">thankful</em> for…</span></a><div class="navr"><a class="pill" id="caPill" href="#" style="cursor:pointer">CA soon</a><a class="pill" id="trendPill" href="https://x.com/search?q=%22I%20am%20thankful%20for%22&src=typed_query&f=live" target="_blank" rel="noopener">The trend on X ↗</a><a class="pill" href="#make">Make yours</a></div></div></nav>
+<nav><div class="wrap"><a class="logo" href="./"><img src="assets/icon-64.png" alt="" style="width:38px;height:38px;border-radius:50%"><span>I am <em style="color:var(--amber)">thankful</em> for…</span></a><div class="navr"><a class="pill" id="caPill" href="#" style="cursor:pointer">CA soon</a><a class="pill" id="trendPill" href="https://x.com/search?q=%22I%20am%20thankful%20for%22&src=typed_query&f=top" target="_blank" rel="noopener">The trend on X ↗</a><a class="pill" href="#make">Make yours</a></div></div></nav>
 
 <header class="hero">
   <div class="feed" id="feed"></div>
@@ -120,16 +126,17 @@ footer { border-top: 1px solid var(--line); padding: 30px 0 44px; color: var(--d
     <div class="shared" id="shared"></div>
     <div class="tag"><i></i>Trending on X today</div>
     <h1>The whole timeline<br>is <em>thankful.</em></h1>
-    <p class="lede">Founders, athletes, degens, your mum. Today everyone on X is finishing the same sentence. <b style="color:var(--cream)">"I am thankful for…"</b></p>
-    <div class="cta"><a class="btn main" href="#make">Say yours →</a><a class="btn" href="https://x.com/search?q=%22I%20am%20thankful%20for%22&src=typed_query&f=live" target="_blank" rel="noopener">See it live on X</a></div>
-    <div class="counter" id="ctr">Lines from today's timeline, scrolling behind this text</div>
+    <p class="lede">Founders, athletes, degens, even Solana. Today everyone on X is finishing the same sentence: <b style="color:var(--cream)">"I am thankful for…"</b><br><span style="color:var(--amber)">Make your own card below and post it on X in one tap.</span></p>
+    <div class="cta"><a class="btn main" href="#make">Make my card →</a><a class="btn" href="https://x.com/search?q=%22I%20am%20thankful%20for%22&src=typed_query&f=top" target="_blank" rel="noopener">See it live on X</a></div>
+    <div class="counter" id="ctr">Real posts from today's timeline, scrolling behind this</div>
   </div>
 </header>
 
 <section id="make">
   <div class="wrap">
     <div class="tag" style="animation:none"><span style="width:8px;height:8px;border-radius:50%;background:var(--amber);display:inline-block"></span>Your turn</div>
-    <h2 class="h2">Finish the sentence. <em>Post it.</em></h2>
+    <h2 class="h2">Make your card. <em>Post it.</em></h2>
+    <p style="color:var(--dim);font-size:17px;margin:10px 0 0;max-width:620px">Write what you're thankful for and your card is made instantly. Tap Post on X and it's ready to go, with $THANKFUL added for you.</p>
     <div class="grid">
       <div class="panel">
         <label for="t" class="o1">What are you thankful for? <small>(write anything)</small></label>
@@ -146,7 +153,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0 44px; color: var(--d
         </div>
         <p class="hint o9">Download the card and attach it to your post. Posts with a picture get far more eyes.</p>
       </div>
-      <div class="cardWrap o5">
+      <div class="cardWrap o5"><div class="cardLbl">👇 This is your card. It updates as you type.</div>
         <canvas id="cv" width="1200" height="675"></canvas>
         <div class="preview"><span class="lbl">Your post</span><span id="pv"></span></div>
       </div>
@@ -167,11 +174,20 @@ footer { border-top: 1px solid var(--line); padding: 30px 0 44px; color: var(--d
   const $ = (id) => document.getElementById(id);
   const toast = (m) => { const e = $("toast"); e.textContent = m; e.classList.add("on"); clearTimeout(e._t); e._t = setTimeout(() => e.classList.remove("on"), 1800); };
   // Short lines from today's "I am thankful for" posts on X (names left out)
-  const LINES = ["my family", "the 10% of my portfolio that survived 2026", "a roof over my head and food in the pantry", "my mom and dad", "guinea pigs", "everyone who hasn't tried to eat me", "the fact that I am eating real food", "the privilege to be in a position to help others", "my frens", "all my degens", "you guys and this crazy place", "such a wonderful community", "my life and all of its weirdness", "my parents", "your friendship", "the unexpected moments of warmth", "the kindness that kept choosing me", "the energy to try 20 things and only fail at 19", "the patience it takes to reach my goals", "the motivation to work hard", "my health", "my newborn daughter", "our troops", "my amazing wife", "Mountain Dew and friends and family and nurses", "the strength I found in the storms", "meaningful work", "each and every one of you", "my health, my family and friends", "all of you who follow me", "the one person who stuck it out with me", "this post"];
-  const AV = ["#ffb547", "#a8324f", "#3fa9c9", "#58b85a", "#7a5bb0", "#ff7f5e", "#e5487b"];
+  // Real public posts on X, 26 Nov 2026 (short excerpts). Letter avatars, no profile photos.
+  const POSTS = [["Sam Altman","@sama","I am <b>thankful for</b> a lot of things in life, but my family is the best thing that has ever happened to me."],
+    ["Raydium","@Raydium","Name one coin you are <b>thankful for</b> 🦃"],["Raydium","@Raydium","<b>thankful for</b> stocks, memes, and whoever invented solana"],
+    ["Robinhood","@RobinhoodApp","<b>thankful for</b> stocks, crypto, and whoever invented mashed potatoes"],["Solana","@solana","Name one app you're <b>thankful for</b> on Solana 🦃"],
+    ["Brian Armstrong","@brian_armstrong","Today I'm <b>thankful for</b> technology, and living in a golden age for builders."],["Ash Crypto","@AshCrypto","This Thanksgiving, I am <b>thankful for</b> the 10% of my portfolio that survived 2026."],
+    ["Netflix","@netflix","<b>thankful for</b> the lions!!!!"],["William Shatner","@WilliamShatner","I am <b>thankful for</b> all of you who follow me and my work."],
+    ["Coinbase","@coinbase","Some ideas of things to be <b>thankful for</b>: → Bitcoin. → Satoshi. … → Leftovers."],["JJ Watt","@JJWatt","Incredibly <b>thankful for</b> the opportunity to be part of this special day. 🙏🏻"],
+    ["Big Cat","@BarstoolBigCat","Happy Thanksgiving to all. <b>Thankful for</b> all of you."],["Merriam-Webster","@MerriamWebster","Let's all go around the table and say one word we're <b>thankful for</b>."],
+    ["Mental Health America","@MentalHealthAm","If all you can do today is feel grateful for making it to the next moment, that's enough."],["Kurt Warner","@kurt13warner","I am <b>Thankful for</b> so many things - my family, my friends…"]];
+  const AV = ["#ffb547", "#e5484d", "#3fa9c9", "#58b85a", "#9b7be0", "#ff7f5e", "#e5487b"];
   let r = 7; const rnd = () => (r = (r * 16807) % 2147483647) / 2147483647;
-  const card = (l) => `<div class="post"><div class="who"><span class="av" style="background:linear-gradient(135deg,${AV[Math.floor(rnd() * AV.length)]},#1a2440)"></span><span class="bars"><i style="width:${40 + rnd() * 35}%"></i><i></i></span></div><p>I am thankful for <b>${l}</b>.</p></div>`;
-  let cols = ""; for (let c = 0; c < 4; c++) { const pick = LINES.slice().sort(() => rnd() - .5).slice(0, 12); const html = pick.map(card).join(""); cols += `<div class="col">${html}${html}</div>`; }
+  const XS = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-left:auto;opacity:.8"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.8-6.3L6.4 22H3.3l7.3-8.3L1 2h6.3l4.4 5.8L18.9 2zm-1.1 18h1.7L6.3 3.9H4.5L17.8 20z"/></svg>';
+  const card = (p, i) => `<div class="post"><div class="who"><span class="av" style="background:${AV[i % AV.length]};display:grid;place-items:center;font:800 15px Inter;color:#0d1424">${p[0][0]}</span><span class="nm"><b>${p[0]}</b><i>${p[1]}</i></span>${XS}</div><p>${p[2]}</p></div>`;
+  let cols = ""; for (let c = 0; c < 4; c++) { const pick = POSTS.map((p, i) => [p, i]).sort(() => rnd() - .5).slice(0, 10); const html = pick.map(([p, i]) => card(p, i)).join(""); cols += `<div class="col">${html}${html}</div>`; }
   $("feed").innerHTML = cols;
 
   const CFG = window.TF_CONFIG || {}; const COIN = { ticker: CFG.TICKER || "$THANKFUL", ca: CFG.CA || "" }; const SITE = CFG.SITE || location.host;
