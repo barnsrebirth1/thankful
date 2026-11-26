@@ -192,7 +192,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0 44px; color: var(--d
 
   const CFG = window.TF_CONFIG || {}; const COIN = { ticker: CFG.TICKER || "$THANKFUL", ca: CFG.CA || "" }; const SITE = CFG.SITE || location.host;
   $("caPill").textContent = COIN.ca ? "CA " + COIN.ca.slice(0, 4) + "…" + COIN.ca.slice(-4) : "CA soon"; $("caPill").onclick = (e) => { e.preventDefault(); if (!COIN.ca) return toast("CA drops at launch"); navigator.clipboard?.writeText(COIN.ca).then(() => toast("CA copied")); };
-  $("cTick").textContent = COIN.ticker; $("cCa").textContent = COIN.ca || "(CA drops at launch)";
+  $("cTick").textContent = COIN.ticker; $("cCa").textContent = COIN.ca ? "CA " + COIN.ca : "";
   const qs = new URLSearchParams(location.search), shared = (qs.get("t") || "").slice(0, 120).replace(/[<>]/g, "");
   if (shared) { $("shared").innerHTML = `Someone is thankful for <b>${shared.replace(/[.!]+$/, "")}</b>. What about you?`; $("shared").classList.add("on"); }
   const STYLES = [{ a: "#0b1222", b: "#1a2440", acc: "#ffb547", txt: "#f7ecdb" }, { a: "#2a0f18", b: "#5a1a2b", acc: "#ffcf73", txt: "#fff4e4" }, { a: "#f7ecdb", b: "#f1dcc0", acc: "#a8324f", txt: "#1d1410" }, { a: "#0b1a12", b: "#173a28", acc: "#9fe870", txt: "#f1fbe9" }];
